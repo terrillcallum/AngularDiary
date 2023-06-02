@@ -14,15 +14,59 @@ textarea {
   margin-bottom: 10px;
 }
 
+.diarynote {
+  border: 2px solid #c9bba6; /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f8f5ec !important; /* Creme background color with !important */
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.diarynote h2 {
+  position: relative;
+}
+
+.diarynote h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
 button {
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: #007bff !important; /* Background color with !important */
   color: #fff;
   border: none;
   cursor: pointer;
+  margin-left: 10px; /* Add margin to separate buttons */
 }
 
   button[disabled] {
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sort-button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}

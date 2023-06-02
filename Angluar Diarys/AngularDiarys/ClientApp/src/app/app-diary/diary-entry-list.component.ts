@@ -12,6 +12,7 @@ export class DiaryEntryListComponent implements OnInit {
   diaryEntries: DiaryEntry[]; // Array to store diary entries
   diaryEntryForm: FormGroup; // Form group for the diary entry form
   searchTerm: string = '';
+  sortAsc: boolean = true;
 
   constructor(
     private diaryEntryService: DiaryEntryService, // Service for fetching diary entries
@@ -85,6 +86,27 @@ export class DiaryEntryListComponent implements OnInit {
       console.error('Could not copy text: ', err);
     });
   }
+
+  sortByTime(): void {
+    console.log('Before sorting:', this.filteredEntries);
+
+    this.diaryEntries = this.filteredEntries.sort((a, b) => {
+      const timeA = new Date(a.creationTime).getTime();
+      const timeB = new Date(b.creationTime).getTime();
+
+      // Toggle sorting order based on a flag
+      const sortOrder = this.sortAsc ? 1 : -1;
+
+      return sortOrder * (timeA - timeB);
+    });
+
+    // Toggle the sorting order flag
+    this.sortAsc = !this.sortAsc;
+
+    console.log('After sorting:', this.filteredEntries);
+  }
+
+  
 
 
 }

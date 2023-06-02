@@ -14,16 +14,20 @@
       <button type="submit" [disabled]="diaryEntryForm.invalid">Add Entry</button>
     </div>
   </form>
-  <input type="text" placeholder="Search by Content" [(ngModel)]="searchTerm">
-  <div *ngIf="diaryEntries && diaryEntries.length > 0">
-    <div *ngFor="let entry of filteredEntries">
-      <h2>{{ entry.title }}</h2>
-      <p>{{ entry.creationTime | date:'short' }}</p>
-      <p>{{ entry.content }}</p>
+  <div class="search-container">
+    <input type="text" placeholder="Search by Content" [(ngModel)]="searchTerm">
+    <button class="sort-button" (click)="sortByTime()">Sort by Time</button>
+  </div>
+  <div class="diarynote" *ngFor="let entry of filteredEntries">
+    <h2>{{ entry.title }}</h2>
+    <p>{{ entry.creationTime | date:'short' }}</p>
+    <p>{{ entry.content }}</p>
+    <div class="button-container">
       <button (click)="copyToClipboard(entry)">Copy to clipboard</button>
       <button (click)="deleteDiaryEntry(entry.id)">Delete</button>
     </div>
   </div>
+
 
   <div *ngIf="!diaryEntries || diaryEntries.length === 0">
     <p>No diary entries found.</p>
