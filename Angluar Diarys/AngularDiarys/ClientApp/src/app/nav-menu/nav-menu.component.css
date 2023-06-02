@@ -1,0 +1,36 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+  color: #ffffff; /* Navbar brand text is now white */
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+body {
+  background-color: #f0f0f0; /* The body background is light grey */
+}
+
+.navbar {
+  background-color: #000080; /* The navbar background is now dark blue (navy) */
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff; /* Navbar links are white */
+}
+
+  .navbar-nav .nav-link:hover {
+    color: #cccccc; /* Navbar links turn light grey when hovered over */
+  }
