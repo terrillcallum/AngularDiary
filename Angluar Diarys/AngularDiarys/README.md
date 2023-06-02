@@ -1,7 +1,5 @@
 
-## Project Description
-
-write a browser based web application which enables a user to:
+## Project Aims
 
 - Add a diary entry with a title, creation time & content
 - View a list of their diary entries
@@ -9,15 +7,6 @@ write a browser based web application which enables a user to:
 - Remove a diary entry
 - Search for a diary entry by content text
 - Share a diary entry with a friend
-
-Expectations:
-
-- How long you spend on this is up to you, it is not required to finish all of the “tickets”. We recommend 2-3 hours but this time limit is not strict. The goal is for us to be able to see the kind of considerations you make when writing code and how you structure a code base. The more you write, the easier this will be to show.
-- Either the back end must be written in .NET  (Framework / Core) OR the front end must be written in Angular (or you can use both together).
-- You may want to include a README.md with a list of improvements you would make if you had more time.
-- We recommend using version control.
-- You must include instructions on how to run the application.
-- You may code the points in any order but we recommend answering them top to bottom as this will provide the highest “value added” features first.
 
 ## Prerequisites
 
