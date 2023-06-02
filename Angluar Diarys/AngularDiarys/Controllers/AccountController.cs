@@ -30,14 +30,17 @@ namespace Project1.Controllers
             {
                 return Ok(new { Token = _tokenService.CreateToken(user) });
             }
-            return BadRequest();
+            return BadRequest(result.Errors);
         }
 
         [HttpPost("login")]
         public async Task<ActionResult> Login([FromBody] LoginModel model)
         {
-            var reguser = new IdentityUser { UserName = model.Email, Email = model.Email };
-            await _userManager.CreateAsync(reguser, model.Password);
+            var user1 = new IdentityUser { UserName = "example@example.com", Email = "example@example.com" };
+            var result1 = await _userManager.CreateAsync(user1, "qQ!1234");
+            var user2 = await _userManager.FindByEmailAsync("example@example.com");
+            //var reguser = new IdentityUser { UserName = model.Email, Email = model.Email };
+            //await _userManager.CreateAsync(reguser, model.Password);
             var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
             if (result.Succeeded)
             {

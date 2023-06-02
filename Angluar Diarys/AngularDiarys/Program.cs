@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Project1;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Project1.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -12,18 +13,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API Name", Version = "v1" });
-});
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
+builder.Services.AddSingleton<ITokenService, TokenService>();
+
+
 var app = builder.Build();
-app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Your API Name v1");
-});
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -41,7 +38,7 @@ using (var scope = app.Services.CreateScope())
         // Create a new user
         var user = new IdentityUser
         {
-            UserName = "test",
+            UserName = "example@example.com",
             Email = "example@example.com"
         };
 

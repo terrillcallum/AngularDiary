@@ -19,7 +19,7 @@ namespace Project1.Models
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         };
 
-            var secretBytes = Encoding.UTF8.GetBytes("YourSecretKey"); // You should use a secret from your configuration here
+            var secretBytes = Encoding.UTF8.GetBytes("$£!GVFDWVB213145152e12v134fg21f4dWFD£d2x24cd324c32"); // You should use a secret from your configuration here
             var key = new SymmetricSecurityKey(secretBytes);
             var algorithm = SecurityAlgorithms.HmacSha256;
 
